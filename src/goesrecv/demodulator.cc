@@ -10,10 +10,10 @@ using namespace util;
 Demodulator::Demodulator(Demodulator::Type t) {
   switch (t) {
   case LRIT:
-    symbolRate_ = 293883;
+    symbolRate_ = 128000;  // COMS-1 LRIT Symbol Rate (128 kSps)
     break;
   case HRIT:
-    symbolRate_ = 927000;
+    symbolRate_ = 3000000;  // COMS-1 HRIT Symbol Rate (3 MSps)
     break;
   default:
     ASSERT(false);
