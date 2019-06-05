@@ -5,6 +5,7 @@
 ## Changes
   * [Update LRIT and HRIT symbol rates](https://github.com/sam210723/goestools/commit/9fd004cc2aef0f7620703321314443f4c8d6b634)
   * [Disable building of goeslrit, goesproc and goespackets](https://github.com/sam210723/goestools/commit/73bae4e01bebd3b3bf347f8afc731bda2549dfe8)
+  * [Change LRIT frequency](https://github.com/sam210723/goestools/commit/af7cfc9a8ee08d096f50b07bde59101be3635a43)
 
 ## Building
 ```
@@ -17,4 +18,9 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 make
 make install
+```
+
+## Running
+```
+goesrecv -i 1 -c ./etc/goesrecv-coms-lrit.conf
 ```
