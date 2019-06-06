@@ -22,4 +22,7 @@ void version(int argc, char** argv) {
   std::cout
     << "Written by Pieter Noordhuis and contributors"
     << std::endl;
+  std::cout
+    << "Modified by sam210723 for compatibility with COMS-1 (https://github.com/sam210723/goestools)"
+    << std::endl;
 }
