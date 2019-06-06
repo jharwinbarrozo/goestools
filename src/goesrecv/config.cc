@@ -444,12 +444,12 @@ Config Config::load(const std::string& file) {
 
   // If the mode field is used, we can populate sane defaults
   if (out.demodulator.downlinkType == "lrit") {
-    setIfZero(out.airspy.frequency, 1691000000u);
-    setIfZero(out.rtlsdr.frequency, 1691000000u);
+    setIfZero(out.airspy.frequency, 1692140000u);
+    setIfZero(out.rtlsdr.frequency, 1692140000u);
   }
   if (out.demodulator.downlinkType == "hrit") {
-    setIfZero(out.airspy.frequency, 1694100000u);
-    setIfZero(out.rtlsdr.frequency, 1694100000u);
+    setIfZero(out.airspy.frequency, 1695400000u);
+    setIfZero(out.rtlsdr.frequency, 1695400000u);
   }
 
   return out;
