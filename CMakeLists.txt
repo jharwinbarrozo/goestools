@@ -142,7 +142,7 @@ if(${BUILD_GOESPROC})
     COMPONENT goestools)
 endif()
 
-option(BUILD_GOESPACKETS "Build goespackets" OFF)
+option(BUILD_GOESPACKETS "Build goespackets" ON)
 if(${BUILD_GOESPACKETS})
   add_subdirectory(src/goespackets)
 endif()
