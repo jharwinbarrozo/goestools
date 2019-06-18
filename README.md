@@ -17,7 +17,7 @@ mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 make
-make install
+sudo make install
 ```
 
 ## Running
