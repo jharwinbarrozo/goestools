@@ -1,6 +1,6 @@
 # goestools
 
-**This is a modified version of goestools for the COMS-1 LRIT downlink ([original README here](README.old.md)). See [github.com/sam210723/COMS-1](https://github.com/sam210723/COMS-1) for the rest of the COMS-1 project.**
+**This is a modified version of goestools (originally by [Pieter Noordhuis (pietern)](https://github.com/pietern/goestools)) for the COMS-1 LRIT downlink ([original README here](README.old.md)). See [github.com/sam210723/COMS-1](https://github.com/sam210723/COMS-1) for the rest of the COMS-1 project.**
 
 ## Changes
   * [Update LRIT and HRIT symbol rates](https://github.com/sam210723/goestools/commit/9fd004cc2aef0f7620703321314443f4c8d6b634)
