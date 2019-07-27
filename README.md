@@ -1,6 +1,8 @@
 # goestools
 
-**This is a modified version of goestools (originally by [Pieter Noordhuis (pietern)](https://github.com/pietern/goestools)) for the COMS-1 LRIT downlink ([original README here](README.old.md)). See [github.com/sam210723/COMS-1](https://github.com/sam210723/COMS-1) for the rest of the COMS-1 project.**
+**This is a modified version of goestools (originally by [Pieter Noordhuis](https://github.com/pietern/goestools)) for the GK-2A and COMS-1 LRIT downlinks ([original README here](README.old.md)).**
+
+**The rest of the xRIT receiver project for GK-2A can be found in the [xrit-rx repo](https://github.com/sam210723/xrit-rx). Older code for COMS-1 (recently retired) can be found [here](https://github.com/sam210723/COMS-1).**
 
 ## Changes
   * [Update LRIT and HRIT symbol rates](https://github.com/sam210723/goestools/commit/9fd004cc2aef0f7620703321314443f4c8d6b634)
