@@ -24,5 +24,5 @@ sudo make install
 
 ## Running
 ```
-goesrecv -i 1 -c ./etc/goesrecv-coms-lrit.conf
+goesrecv -i 1 -c ./etc/GK-2A_LRIT.conf
 ```
