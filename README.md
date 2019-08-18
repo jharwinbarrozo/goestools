@@ -9,7 +9,7 @@
   * [Disable building of goeslrit, goesproc and goespackets](https://github.com/sam210723/goestools/commit/73bae4e01bebd3b3bf347f8afc731bda2549dfe8)
   * [Change LRIT frequency](https://github.com/sam210723/goestools/commit/af7cfc9a8ee08d096f50b07bde59101be3635a43)
 
-## Building
+## Building from source
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential cmake zlib1g-dev libairspy-dev librtlsdr-dev
@@ -20,9 +20,14 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 make
 sudo make install
+cd ..
+cd ..
+cp goestools/etc/goesrecv.conf goesrecv.conf
 ```
 
 ## Running
+The ```-i``` option specifies the interval (in seconds) that goesrecv will output information to the console. The ```-c``` option specifies a path to the goesrecv config file.
+
 ```
-goesrecv -i 1 -c ./etc/GK-2A_LRIT.conf
+goesrecv -i 1 -c goesrecv.conf
 ```
