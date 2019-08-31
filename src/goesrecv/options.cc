@@ -11,7 +11,7 @@
 
 void usage(int argc, char** argv) {
   fprintf(stderr, "Usage: %s [OPTIONS]\n", argv[0]);
-  fprintf(stderr, "Demodulate and decode signal into packet stream.\n");
+  fprintf(stderr, "Demodulate and decode signal into VCDU packet stream.\n");
   fprintf(stderr, "\n");
   fprintf(stderr, "Options:\n");
   fprintf(stderr, "  -c, --config PATH          Path to configuration file\n");
