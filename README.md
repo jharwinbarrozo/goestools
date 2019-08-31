@@ -1,5 +1,7 @@
 # goestools
 
+[![Build Status](https://travis-ci.org/sam210723/goestools.svg?branch=master)](https://travis-ci.org/sam210723/goestools)
+
 **This is a modified version of goestools (originally by [Pieter Noordhuis](https://github.com/pietern/goestools)) for the GK-2A and COMS-1 LRIT downlinks ([original README here](README.old.md)).**
 
 **The rest of the xRIT receiver project for GK-2A can be found in the [xrit-rx repo](https://github.com/sam210723/xrit-rx). Older code for COMS-1 (recently retired) can be found [here](https://github.com/sam210723/COMS-1).**
