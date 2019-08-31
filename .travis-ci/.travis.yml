@@ -1,0 +1,12 @@
+language: cpp
+dist: bionic
+addons:
+  apt:
+    update: true
+    packages:
+    - build-essential
+    - cmake
+    - zlib1g-dev
+    - libairspy-dev
+install: .travis-ci/install.sh
+script: .travis-ci/build.sh
