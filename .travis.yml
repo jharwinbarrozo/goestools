@@ -8,5 +8,8 @@ addons:
     - cmake
     - zlib1g-dev
     - libairspy-dev
+before_install:
+ - chmod +x .travis-ci/install.sh
+ - chmod +x .travis-ci/build.sh
 install: .travis-ci/install.sh
 script: .travis-ci/build.sh
