@@ -7,4 +7,3 @@ sudo make -j2 install
 sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
 sudo ldconfig
 echo 'blacklist dvb_usb_rtl28xxu' | sudo tee --append /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
-sudo reboot
