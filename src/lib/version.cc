@@ -12,7 +12,7 @@ void version(int argc, char** argv) {
 
   std::cout
     << argv0
-    << " -- " << GIT_COMMIT_HASH
+    << " for GK-2A -- " << GIT_COMMIT_HASH
     << " (" << GIT_COMMIT_DATE << ")"
     << std::endl
     << std::endl;
@@ -23,6 +23,6 @@ void version(int argc, char** argv) {
     << "Written by Pieter Noordhuis and contributors"
     << std::endl;
   std::cout
-    << "Modified by sam210723 for compatibility with COMS-1 (https://github.com/sam210723/goestools)"
+    << "Modified by sam210723 for compatibility with GK-2A (https://github.com/sam210723/goestools)"
     << std::endl;
 }
