@@ -7,6 +7,12 @@
 **The rest of the xRIT receiver project for GK-2A can be found in the [xrit-rx repo](https://github.com/sam210723/xrit-rx). Older code for COMS-1 (recently retired) can be found [here](https://github.com/sam210723/COMS-1).**
 
 ## Building
+Install dependencies for ```librtlsdr``` and ```goesrecv```:
+```
+sudo apt-get update
+sudo apt-get install -y build-essential cmake zlib1g-dev libairspy-dev libusb-1.0-0-dev
+```
+
 Build ```librtlsdr``` from source:
 ```
 # Download, compile, and install librtlsdr
@@ -27,8 +33,6 @@ sudo reboot
 
 Build ```goesrecv``` from source:
 ```
-sudo apt-get update
-sudo apt-get install -y build-essential cmake zlib1g-dev libairspy-dev
 git clone --recursive https://github.com/sam210723/goestools
 cd goestools
 mkdir build
