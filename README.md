@@ -10,7 +10,7 @@
 Install dependencies for ```librtlsdr``` and ```goesrecv```:
 ```
 sudo apt-get update
-sudo apt-get install -y build-essential cmake zlib1g-dev libairspy-dev libusb-1.0-0-dev
+sudo apt-get install -y build-essential pkg-config cmake git zlib1g-dev libairspy-dev libusb-1.0-0-dev
 ```
 
 Build ```librtlsdr``` from source:
