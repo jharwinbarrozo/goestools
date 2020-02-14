@@ -106,38 +106,3 @@ option(BUILD_GOESEMWIN "Build goesemwin" OFF)
 if(${BUILD_GOESEMWIN})
   add_subdirectory(src/goesemwin)
 endif()
-
-option(BUILD_GOESPROC "Build goesproc" OFF)
-if(${BUILD_GOESPROC})
-  add_subdirectory(src/goesproc)
-
-  # Process and install GOES-N series example config
-  configure_file(
-    share/goesproc-goesn.conf.in
-    "${PROJECT_BINARY_DIR}/share/goesproc-goesn.conf")
-  install(
-    FILES "${PROJECT_BINARY_DIR}/share/goesproc-goesn.conf"
-    DESTINATION share/goestools
-    COMPONENT goestools)
-
-  # Process and install GOES-R series example config
-  configure_file(
-    share/goesproc-goesr.conf.in
-    "${PROJECT_BINARY_DIR}/share/goesproc-goesr.conf")
-  install(
-    FILES "${PROJECT_BINARY_DIR}/share/goesproc-goesr.conf"
-    DESTINATION share/goestools
-    COMPONENT goestools)
-
-  # Install contrast curve and false color LUT
-  install(
-    DIRECTORY share/wxstar
-    DESTINATION share/goestools
-    COMPONENT goestools)
-
-  # Install Natural Earth GeoJSON files for map overlays
-  install(
-    DIRECTORY share/ne
-    DESTINATION share/goestools
-    COMPONENT goestools)
-endif()
