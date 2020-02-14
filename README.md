@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/sam210723/goestools.svg?branch=master)](https://travis-ci.org/sam210723/goestools)
 
-**This is a modified version of goestools (originally by [Pieter Noordhuis](https://github.com/pietern/goestools)) for the GK-2A and COMS-1 LRIT downlinks ([original README here](README.old.md)).**
+**This is a modified version of goesrecv (originally by [Pieter Noordhuis](https://github.com/pietern/goestools)) for the LRIT downlink transmitted by GEO-KOMPSAT-2A (GK-2A) at 128.2°E.**
 
-**The rest of the xRIT receiver project for GK-2A can be found in the [xrit-rx repo](https://github.com/sam210723/xrit-rx). Older code for COMS-1 (recently retired) can be found [here](https://github.com/sam210723/COMS-1).**
+**The rest of the xRIT receiver project for GK-2A can be found in the [xrit-rx repo](https://github.com/sam210723/xrit-rx). Older code for the now retired COMS-1 satellite can be found [here](https://github.com/sam210723/COMS-1).**
 
 ## Building
 Install dependencies for ```librtlsdr``` and ```goesrecv```:
