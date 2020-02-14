@@ -17,12 +17,9 @@ void version(int argc, char** argv) {
     << std::endl
     << std::endl;
   std::cout
-    << "Part of goestools (https://github.com/pietern/goestools)"
+    << "Originally part of goestools written by Pieter Noordhuis\nand contributors (https://github.com/pietern/goestools)"
     << std::endl;
   std::cout
-    << "Written by Pieter Noordhuis and contributors"
-    << std::endl;
-  std::cout
-    << "Modified by sam210723 for compatibility with GK-2A (https://github.com/sam210723/goestools)"
+    << "\nModified by sam210723 for compatibility with GEO-KOMPSAT-2A\n(https://github.com/sam210723/goestools)"
     << std::endl;
 }
