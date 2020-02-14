@@ -141,8 +141,3 @@ if(${BUILD_GOESPROC})
     DESTINATION share/goestools
     COMPONENT goestools)
 endif()
-
-option(BUILD_GOESPACKETS "Build goespackets" OFF)
-if(${BUILD_GOESPACKETS})
-  add_subdirectory(src/goespackets)
-endif()
