@@ -94,8 +94,3 @@ option(BUILD_GOESRECV "Build goesrecv" ON)
 if(${BUILD_GOESRECV})
   add_subdirectory(src/goesrecv)
 endif()
-
-option(BUILD_GOESLRIT "Build goeslrit" OFF)
-if(${BUILD_GOESLRIT})
-  add_subdirectory(src/goeslrit)
-endif()
