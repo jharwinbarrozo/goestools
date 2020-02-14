@@ -99,10 +99,3 @@ option(BUILD_GOESLRIT "Build goeslrit" OFF)
 if(${BUILD_GOESLRIT})
   add_subdirectory(src/goeslrit)
 endif()
-
-# Disable goesemwin by default because it won't be relevant once
-# GOES-15 is replaced by GOES-17 in late 2018.
-option(BUILD_GOESEMWIN "Build goesemwin" OFF)
-if(${BUILD_GOESEMWIN})
-  add_subdirectory(src/goesemwin)
-endif()
