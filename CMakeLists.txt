@@ -85,8 +85,6 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 
 add_subdirectory(src/util)
 add_subdirectory(src/lib)
-#add_subdirectory(src/lrit)
-#add_subdirectory(src/dcs)
 add_subdirectory(src/decoder)
 add_subdirectory(src/assembler)
 
