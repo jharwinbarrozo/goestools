@@ -10,6 +10,7 @@ addons:
     - zlib1g-dev
     - libairspy-dev
     - libusb-1.0-0-dev
+    - mingw-w64
     - libz-mingw-w64
     - libz-mingw-w64-dev
 
