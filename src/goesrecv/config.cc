@@ -99,8 +99,12 @@ void loadDemodulator(Config::Demodulator& out, const toml::Value& v) {
     const auto& key = it.first;
     const auto& value = it.second;
 
-    if (key == "mode") {
-      out.downlinkType = value.as<std::string>();
+    if (key == "satellite") {
+      out.satellite = value.as<std::string>();
+    }
+
+    if (key == "downlink") {
+      out.downlink = value.as<std::string>();
       continue;
     }
 

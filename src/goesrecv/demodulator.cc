@@ -7,13 +7,13 @@
 
 using namespace util;
 
-Demodulator::Demodulator(Demodulator::Type t) {
-  switch (t) {
+Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
+  switch (d) {
   case LRIT:
-    symbolRate_ = 128000;  // COMS-1 LRIT Symbol Rate (128 kSps)
+    symbolRate_ = 128000;  // GK-2A LRIT Symbol Rate (128 kSps)
     break;
   case HRIT:
-    symbolRate_ = 3000000;  // COMS-1 HRIT Symbol Rate (3 MSps)
+    symbolRate_ = 3000000;  // GK-2A HRIT Symbol Rate (3 MSps)
     break;
   default:
     ASSERT(false);

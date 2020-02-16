@@ -20,21 +20,33 @@ int main(int argc, char** argv) {
   auto opts = parseOptions(argc, argv);
   auto config = Config::load(opts.config);
 
-  // Convert string option to enum
-  Demodulator::Type downlinkType;
-  if (config.demodulator.downlinkType == "lrit") {
-    downlinkType = Demodulator::LRIT;
-  } else if (config.demodulator.downlinkType == "hrit") {
-    downlinkType = Demodulator::HRIT;
+  // Convert satellite option string option to enum
+  Demodulator::Satellite satellite;
+  if (config.demodulator.satellite == "GK-2A") {
+    downlink = Demodulator::GK2A;
   } else {
     std::cerr
-      << "Invalid downlink type: "
-      << config.demodulator.downlinkType
+      << "Invalid satellite name: "
+      << config.demodulator.satellite
       << std::endl;
     exit(1);
   }
 
-  Demodulator demod(downlinkType);
+  // Convert downlink option string option to enum
+  Demodulator::Downlink downlink;
+  if (config.demodulator.downlink == "lrit") {
+    downlink = Demodulator::LRIT;
+  } else if (config.demodulator.downlink == "hrit") {
+    downlink = Demodulator::HRIT;
+  } else {
+    std::cerr
+      << "Invalid downlink type: "
+      << config.demodulator.downlink
+      << std::endl;
+    exit(1);
+  }
+
+  Demodulator demod(satellite, downlink);
   demod.initialize(config);
 
   Decoder decode(demod.getSoftBitsQueue());
