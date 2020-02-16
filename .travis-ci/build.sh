@@ -10,4 +10,3 @@ goesrecv --version
 rm -rf *
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_SYSTEM_NAME="Windows"
 make
-goesrecv --version
