@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  message("-- Building for Windows")
+  set(CMAKE_SYSTEM_VERSION 10.0)
+  set(CMAKE_SYSTEM_PROCESSOR x86)
+  set(CMAKE_C_COMPILER i686-w64-mingw32-gcc)
+  set(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
+  set(CMAKE_RC_COMPILER i686-w64-mingw32-windres)
+  set(CMAKE_C_LINK_EXECUTABLE i686-w64-mingw32-ld)
+endif()
+
 project(goesdec CXX C)
 
 # Remove directory from CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES and add it
