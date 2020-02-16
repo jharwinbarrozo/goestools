@@ -13,7 +13,6 @@ Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
     { 128000, 3000000 }   // GK-2A Symbol Rates
   };
   symbolRate_ = sr[s][d];
-  printf("Symbol Rate: %i\n", symbolRate_);
 
   // Sample rate depends on source
   sampleRate_ = 0;

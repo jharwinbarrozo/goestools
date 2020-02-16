@@ -101,6 +101,7 @@ void loadDemodulator(Config::Demodulator& out, const toml::Value& v) {
 
     if (key == "satellite") {
       out.satellite = value.as<std::string>();
+      continue;
     }
 
     if (key == "downlink") {
