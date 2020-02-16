@@ -9,7 +9,10 @@
 Dir::Dir(const std::string& path)
     : path_(path) {
   dir_ = opendir(path.c_str());
-  ASSERT(dir_ != nullptr);
+
+  #ifndef _WIN32
+    ASSERT(dir_ != nullptr);
+  #endif
 }
 
 Dir::~Dir() {
