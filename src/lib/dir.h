@@ -4,7 +4,10 @@
 #include <vector>
 
 #include <dirent.h>
-#include <fnmatch.h>
+
+#ifndef _WIN32
+  #include <fnmatch.h>
+#endif
 
 class Dir {
 public:
