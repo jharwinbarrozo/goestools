@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
   // Convert satellite option string option to enum
   Demodulator::Satellite satellite;
   if (config.demodulator.satellite == "GK-2A") {
-    downlink = Demodulator::GK2A;
+    satellite = Demodulator::GK2A;
   } else {
     std::cerr
       << "Invalid satellite name: "
