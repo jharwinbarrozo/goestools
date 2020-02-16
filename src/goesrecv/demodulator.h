@@ -16,12 +16,12 @@
 class Demodulator {
 public:
   enum Satellite {
-    GK2A = 1
+    GK2A
   };
 
   enum Downlink {
-    LRIT = 1,
-    HRIT = 2,
+    LRIT,
+    HRIT
   };
 
   explicit Demodulator(Satellite s, Downlink d);
