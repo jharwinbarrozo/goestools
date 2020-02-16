@@ -4,6 +4,10 @@
 
 #include <util/error.h>
 
+#ifdef _WIN32
+  #include <iomanip>
+#endif
+
 namespace util {
 
 std::string stringTime() {
@@ -25,7 +29,14 @@ bool parseTime(const std::string& in, struct timespec* ts) {
   long int tv_nsec = 0;
 
   // For example: 2017-12-21T17:46:32.2Z
-  char* pos = strptime(buf, "%Y-%m-%dT%H:%M:%S", &tm);
+  #ifdef _WIN32
+    std::istringstream ss(in);
+    ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%S");
+    char* pos = (char*)(in.c_str() + ss.tellg());
+  #else
+    char* pos = strptime(buf, "%Y-%m-%dT%H:%M:%S", &tm);
+  #endif
+
   if (pos < (buf + in.size())) {
     if (pos[0] == '.') {
       // Expect single decimal for fractional second
