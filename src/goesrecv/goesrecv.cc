@@ -1,3 +1,7 @@
+#ifdef _WIN32
+#include <cstdlib>
+#endif
+
 #include <signal.h>
 
 #include <iostream>
@@ -76,7 +80,11 @@ int main(int argc, char** argv) {
   monitor.start();
 
   while (!sigint) {
-    pause();
+    #ifdef _WIN32
+      system("pause");
+    #else
+      pause();
+    #endif
   }
 
   demod.stop();
