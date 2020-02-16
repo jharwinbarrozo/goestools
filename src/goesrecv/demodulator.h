@@ -15,12 +15,16 @@
 
 class Demodulator {
 public:
-  enum Type {
-    LRIT = 1,
-    HRIT = 2,
+  enum Satellite {
+    GK2A
   };
 
-  explicit Demodulator(Type t);
+  enum Downlink {
+    LRIT,
+    HRIT
+  };
+
+  explicit Demodulator(Satellite s, Downlink d);
 
   void initialize(Config& config);
 

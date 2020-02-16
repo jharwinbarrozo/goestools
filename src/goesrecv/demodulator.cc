@@ -7,17 +7,12 @@
 
 using namespace util;
 
-Demodulator::Demodulator(Demodulator::Type t) {
-  switch (t) {
-  case LRIT:
-    symbolRate_ = 128000;  // COMS-1 LRIT Symbol Rate (128 kSps)
-    break;
-  case HRIT:
-    symbolRate_ = 3000000;  // COMS-1 HRIT Symbol Rate (3 MSps)
-    break;
-  default:
-    ASSERT(false);
-  }
+Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
+  // Symbol rate depends on satellite and downlink
+  int sr[1][2] = {
+    { 128000, 3000000 }   // GK-2A Symbol Rates
+  };
+  symbolRate_ = sr[s][d];
 
   // Sample rate depends on source
   sampleRate_ = 0;

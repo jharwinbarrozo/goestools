@@ -99,8 +99,13 @@ void loadDemodulator(Config::Demodulator& out, const toml::Value& v) {
     const auto& key = it.first;
     const auto& value = it.second;
 
-    if (key == "mode") {
-      out.downlinkType = value.as<std::string>();
+    if (key == "satellite") {
+      out.satellite = value.as<std::string>();
+      continue;
+    }
+
+    if (key == "downlink") {
+      out.downlink = value.as<std::string>();
       continue;
     }
 
@@ -442,14 +447,16 @@ Config Config::load(const std::string& file) {
   out.demodulator.statsPublisher.bind.push_back(demodulatorStatsEndpoint);
   out.decoder.statsPublisher.bind.push_back(decoderStatsEndpoint);
 
-  // If the mode field is used, we can populate sane defaults
-  if (out.demodulator.downlinkType == "lrit") {
-    setIfZero(out.airspy.frequency, 1692140000u);
-    setIfZero(out.rtlsdr.frequency, 1692140000u);
-  }
-  if (out.demodulator.downlinkType == "hrit") {
-    setIfZero(out.airspy.frequency, 1695400000u);
-    setIfZero(out.rtlsdr.frequency, 1695400000u);
+  // Default downlink frequencies
+  if (out.demodulator.satellite == "GK-2A") {
+    if (out.demodulator.downlink == "lrit") {
+      setIfZero(out.airspy.frequency, 1692140000u);
+      setIfZero(out.rtlsdr.frequency, 1692140000u);
+    }
+    if (out.demodulator.downlink == "hrit") {
+      setIfZero(out.airspy.frequency, 1695400000u);
+      setIfZero(out.rtlsdr.frequency, 1695400000u);
+    }
   }
 
   return out;

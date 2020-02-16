@@ -18,8 +18,11 @@ struct Config {
   };
 
   struct Demodulator {
+    // Satellite name
+    std::string satellite;
+
     // LRIT or HRIT
-    std::string downlinkType;
+    std::string downlink;
 
     // String "airspy" or "rtlsdr"
     std::string source;
