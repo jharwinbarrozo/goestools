@@ -15,9 +15,14 @@ void mkdirp(const std::string& path) {
       continue;
     }
     auto sub = path.substr(0, pos);
-    constexpr auto mode =
-        S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
-    auto rv = mkdir(sub.c_str(), mode);
+
+    #ifdef _WIN32
+        auto rv = mkdir(sub.c_str());
+    #else
+        constexpr auto mode = S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+        auto rv = mkdir(sub.c_str(), mode);
+    #endif
+
     if (rv == -1 && errno != EEXIST) {
       perror("mkdir");
       ASSERT(rv == 0);
