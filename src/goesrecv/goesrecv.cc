@@ -56,12 +56,20 @@ int main(int argc, char** argv) {
   monitor.initialize(config);
 
   // Install signal handler
-  struct sigaction sa;
-  sa.sa_handler = signalHandler;
-  sigemptyset(&sa.sa_mask);
-  sa.sa_flags = 0;
-  sigaction(SIGINT, &sa, NULL);
-  sigaction(SIGTERM, &sa, NULL);
+  #ifndef _WIN32
+    struct sigaction sa;
+    sa.sa_handler = signalHandler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+  #endif
+
+  #ifdef _WIN32
+    signal(SIGINT, signalHandler);
+    signal(SIGTERM, signalHandler);
+  #else
+    sigaction(SIGINT, &sa, NULL);
+    sigaction(SIGTERM, &sa, NULL);
+  #endif
 
   demod.start();
   decode.start();
