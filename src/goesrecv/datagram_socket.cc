@@ -55,7 +55,15 @@ DatagramSocket::DatagramSocket(const std::string& addr) {
     throw std::runtime_error("unable to resolve: " + host);
   }
 
+  #ifdef _WIN32
+    WSADATA wsa_data;
+    if (WSAStartup(MAKEWORD(1, 1), &wsa_data)) {
+      throw std::runtime_error("unable to initialise winsock");
+    }
+  #endif
+
   auto fd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+
   if (fd == -1) {
     throw std::runtime_error("unable to create socket");
   }
@@ -66,7 +74,12 @@ DatagramSocket::DatagramSocket(const std::string& addr) {
 }
 
 DatagramSocket::~DatagramSocket() {
-  close(fd_);
+  #ifdef _WIN32
+    closesocket(fd_);
+    WSACleanup();
+  #else
+    close(fd_);
+  #endif
 }
 
 bool DatagramSocket::send(const std::string& payload) {
