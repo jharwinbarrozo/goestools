@@ -8,17 +8,12 @@
 using namespace util;
 
 Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
-  if (s == GK2A) {
-    if (d == LRIT) {
-      symbolRate_ = 128000;
-    }
-    else if (d == HRIT) {
-      symbolRate_ = 3000000;
-    }
-    else {
-      ASSERT(false)
-    }
-  }
+  // Symbol rate depends on satellite and downlink
+  int sr[1][2] = {
+    { 128000, 3000000 }   // GK-2A Symbol Rates
+  };
+  symbolRate_ = sr[s][d];
+  printf("Symbol Rate: %s\n", symbolRate_);
 
   // Sample rate depends on source
   sampleRate_ = 0;
