@@ -1,9 +1,14 @@
 #include "datagram_socket.h"
 
-#include <netdb.h>
-#include <netinet/in.h>
+#ifdef _WIN32
+  #include <ws2def.h>
+  #include <ws2tcpip.h>
+#else
+  #include <netdb.h>
+  #include <netinet/in.h>
+  #include <sys/socket.h>
+#endif
 #include <sys/types.h>
-#include <sys/socket.h>
 #include <unistd.h>
 
 #include <cstring>
@@ -48,7 +53,9 @@ DatagramSocket::DatagramSocket(const std::string& addr) {
   }
   hints.ai_socktype = SOCK_DGRAM;
   hints.ai_protocol = 0;
-  hints.ai_flags = AI_ADDRCONFIG;
+  #ifdef AI_ADDRCONFIG
+    hints.ai_flags = AI_ADDRCONFIG;
+  #endif
   struct addrinfo* res = nullptr;
   auto rv = getaddrinfo(host.c_str(), port.c_str(), &hints, &res);
   if (rv < 0) {
@@ -64,7 +71,7 @@ DatagramSocket::DatagramSocket(const std::string& addr) {
 
   auto fd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
 
-  if (fd == -1) {
+  if (fd <= 0) {
     throw std::runtime_error("unable to create socket");
   }
 
