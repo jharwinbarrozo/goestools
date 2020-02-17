@@ -71,7 +71,7 @@ DatagramSocket::DatagramSocket(const std::string& addr) {
 
   auto fd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
 
-  if (fd <= 0) {
+  if (fd < 0) {
     throw std::runtime_error("unable to create socket");
   }
 
