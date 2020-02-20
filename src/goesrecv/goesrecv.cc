@@ -24,7 +24,11 @@ int main(int argc, char** argv) {
   Demodulator::Satellite satellite;
   if (config.demodulator.satellite == "GK-2A") {
     satellite = Demodulator::GK2A;
-  } else {
+  }
+  else if (config.demodulator.satellite == "FY-4A") {
+    satellite = Demodulator::FY4A;
+  }
+  else {
     std::cerr
       << "Invalid satellite name: "
       << config.demodulator.satellite

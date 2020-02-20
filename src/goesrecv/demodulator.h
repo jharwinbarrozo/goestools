@@ -16,7 +16,8 @@
 class Demodulator {
 public:
   enum Satellite {
-    GK2A
+    GK2A,
+    FY4A
   };
 
   enum Downlink {
