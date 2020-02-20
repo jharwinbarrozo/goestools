@@ -21,8 +21,6 @@ Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
   };
   symbolRate_ = mods[s][d][0];
   modOrder_ = mods[s][d][1];
-  printf("SYMBOL RATE: %i\n", symbolRate_);
-  printf("MOD ORDER: %i\n\n", modOrder_);
 
   // Check demodulator config is valid
   if (symbolRate_ == 0 || modOrder_ == 0) {
@@ -66,6 +64,7 @@ void Demodulator::initialize(Config& config) {
     (config.costas.maxDeviation * 2 * M_PI) / sampleRate_;
   costas_ = std::make_unique<Costas>();
   costas_->setMaxDeviation(maxDeviation);
+  costas_->setModOrder(modOrder_);
   costas_->setSamplePublisher(std::move(config.costas.samplePublisher));
 
   rrc_ = std::make_unique<RRC>(dc, sr1, symbolRate_);

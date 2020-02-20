@@ -18,6 +18,11 @@ public:
     samplePublisher_ = std::move(samplePublisher);
   }
 
+  // Set modulation order (2 == BPSK, 4 == QPSK)
+  void setModOrder(int modOrder) {
+    modOrder_ = modOrder;
+  }
+
   // Returns frequency in radians per sample.
   float getFrequency() const {
     return freq_;
@@ -38,6 +43,7 @@ protected:
   float alpha_;
   float beta_;
   float maxDeviation_;
+  int modOrder_;
 
   std::unique_ptr<SamplePublisher> samplePublisher_;
 };
