@@ -8,11 +8,21 @@
 using namespace util;
 
 Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
-  // Symbol rate depends on satellite and downlink
-  int sr[1][2] = {
-    { 128000, 3000000 }   // GK-2A Symbol Rates
+  // Symbol rate and modulation order depends on satellite and downlink
+  int mods[2][2][2] = {
+    {
+      { 128000,  2 },  // GK-2A LRIT 128k BPSK
+      { 3000000, 4 }   // GK-2A LRIT 3M QPSK
+    },
+    {
+      { 90000,   4 },  // FY-4A LRIT 90k QPSK
+      { 0, 0 }         // FY-4A HRIT NOT SUPPORTED
+    }
   };
-  symbolRate_ = sr[s][d];
+  symbolRate_ = mods[s][d][0];
+  modOrder_ = mods[s][d][1];
+  printf("SYMBOL RATE: %i\n", symbolRate_);
+  printf("MOD ORDER: %i\n\n", modOrder_);
 
   // Sample rate depends on source
   sampleRate_ = 0;

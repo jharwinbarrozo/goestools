@@ -40,6 +40,7 @@ protected:
   void publishStats();
 
   uint32_t symbolRate_;
+  uint32_t modOrder_;
   uint32_t sampleRate_;
 
   std::unique_ptr<Source> source_;
