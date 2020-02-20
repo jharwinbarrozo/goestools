@@ -16,13 +16,19 @@ Demodulator::Demodulator(Demodulator::Satellite s, Demodulator::Downlink d) {
     },
     {
       { 90000,   4 },  // FY-4A LRIT 90k QPSK
-      { 0, 0 }         // FY-4A HRIT NOT SUPPORTED
+      { 0, 0 }         // FY-4A HRIT NOT SUPPORTED (DVB-S2 based)
     }
   };
   symbolRate_ = mods[s][d][0];
   modOrder_ = mods[s][d][1];
   printf("SYMBOL RATE: %i\n", symbolRate_);
   printf("MOD ORDER: %i\n\n", modOrder_);
+
+  // Check demodulator config is valid
+  if (symbolRate_ == 0 || modOrder_ == 0) {
+    printf("Satellite or downlink not supported\n");
+    exit(1);
+  }
 
   // Sample rate depends on source
   sampleRate_ = 0;
