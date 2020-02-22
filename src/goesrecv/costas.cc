@@ -121,7 +121,25 @@ void Costas::work(
     // Total error is average of 4 errors.
     float terr = 0.0f;
     for (size_t j = 0; j < 4; j++) {
-      float err = fo[i + j].real() * fo[i + j].imag();
+      float err;
+
+      // Phase error for BPSK and QPSK
+      switch (modOrder_)
+      {
+        case 2:
+          err = fo[i + j].real() * fo[i + j].imag();
+          break;
+        case 4:
+          // From costas_loop_cc_impl.h in GNU Radio
+          err = (
+            ( fo[i + j].real() > 0.0f ? 1.0f : -1.0f ) * fo[i + j].imag()
+            - 
+            ( fo[i + j].imag() > 0.0f ? 1.0f : -1.0f ) * fo[i + j].real()
+          );
+          break;
+      }
+      
+      // Clip and average error
       terr += (0.5f * (fabsf(err + 1.0f) - fabsf(err - 1.0f))) / 4.0f;
     }
 
