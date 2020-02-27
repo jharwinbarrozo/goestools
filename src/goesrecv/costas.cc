@@ -121,7 +121,7 @@ void Costas::work(
     // Total error is average of 4 errors.
     float terr = 0.0f;
     for (size_t j = 0; j < 4; j++) {
-      float err;
+      float err = 0.0f;
 
       // Phase error for BPSK and QPSK
       switch (modOrder_)
