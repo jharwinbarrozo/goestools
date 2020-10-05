@@ -46,13 +46,20 @@ cp goestools/etc/goesrecv.conf goesrecv.conf
 ```
 
 ## Running
-The ```-i``` option specifies the interval (in seconds) that goesrecv will output information to the console.
-
-The ```-c``` option specifies a path to the goesrecv config file.
-
+To start ```goesrecv``` in verbose mode reporting statistics every second, with the config file located in the current directory, use the following command:
 ```
-goesrecv -i 1 -c goesrecv.conf
+goesrecv -v -i 1 -c goesrecv.conf
 ```
+
+This is an example of typical ```goesrecv``` console output while receiving GK-2A LRIT:
+```
+[monitor] gain: 61.04, freq:  1200.1, omega: 8.000, vit(avg):   98, rs(sum):    0, packets:  8, drops:  0 
+[monitor] gain: 61.04, freq:  1187.5, omega: 8.000, vit(avg):  104, rs(sum):    0, packets:  8, drops:  0 
+[monitor] gain: 61.04, freq:  1195.7, omega: 8.000, vit(avg):  108, rs(sum):    0, packets:  7, drops:  0 
+[monitor] gain: 61.04, freq:  1180.5, omega: 8.000, vit(avg):   99, rs(sum):    0, packets:  8, drops:  0 
+```
+
+Run ```goesrecv --help``` for a full description of each option.
 
 ## Changes
   * [Update LRIT and HRIT symbol rates](https://github.com/sam210723/goestools/commit/9fd004cc2aef0f7620703321314443f4c8d6b634)
