@@ -1,5 +1,5 @@
-git clone https://github.com/steve-m/librtlsdr.git
-cd librtlsdr
+git clone https://github.com/steve-m/librtlsdr.git /home/runner/work/goestools/librtlsdr
+cd /home/runner/work/goestools/librtlsdr
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DINSTALL_UDEV_RULES=ON ..
