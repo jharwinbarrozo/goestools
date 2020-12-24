@@ -2,6 +2,7 @@
 
 #include <array>
 #include <ctime>
+#include <cstdint>
 
 // PacketWriter is an abstract base class for things that write packets.
 class PacketWriter {
