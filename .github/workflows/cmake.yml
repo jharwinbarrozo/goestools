@@ -13,7 +13,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y zlib1g-dev libairspy-dev libusb-1.0-0-dev
     
     - name: Build librtlsdr
-      run: $GITHUB_WORKSPACE/.github/build-librtlsdr.sh
+      run: .github/build-librtlsdr.sh
       
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build
