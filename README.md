@@ -1,6 +1,6 @@
 # goestools
 
-[![Build Status](https://github.com/sam210723/goestools/workflows/Build/badge.svg)](https://github.com/sam210723/goestools/actions?query=workflow%3ABuild)
+[![Build Status](https://github.com/sam210723/goestools/workflows/build/badge.svg)](https://github.com/sam210723/goestools/actions?query=workflow%3Abuild)
 
 **This is a modified version of goesrecv (originally by [Pieter Noordhuis](https://github.com/pietern/goestools)) for the LRIT downlink transmitted by GEO-KOMPSAT-2A (GK-2A) at 128.2°E.**
 
