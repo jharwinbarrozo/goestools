@@ -1,0 +1,40 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone goestools
+      run: git clone --recursive https://github.com/sam210723/goestools /home/runner/work/goestools/goestools
+      
+    - name: Install Dependencies
+      run: sudo apt-get update && sudo apt-get install -y zlib1g-dev libairspy-dev libusb-1.0-0-dev
+    
+    - name: Build librtlsdr
+      run: chmod +x $GITHUB_WORKSPACE/.github/scripts/build-librtlsdr.sh && $GITHUB_WORKSPACE/.github/scripts/build-librtlsdr.sh
+      
+    - name: Create Build Environment
+      run: cmake -E make_directory ${{runner.workspace}}/build
+
+    - name: Configure CMake
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_INSTALL_PREFIX=/usr/local
+
+    - name: Build
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: make
+
+    - name: Install
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: sudo make install
+    
+    - name: Test
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: goesrecv --version
